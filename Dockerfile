@@ -8,7 +8,7 @@ Workdir /school
 copy . /school
 
 #copy files from workdir to nginx default serve directory 
-docker cp /home/ubuntu/website/. webserver:/usr/share/nginx/html/
+docker cp webserver:/usr/share/nginx/html/
 
 #expose defauls ngninx port 
 Expose 80
