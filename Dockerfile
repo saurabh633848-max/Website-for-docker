@@ -2,13 +2,13 @@
 from nginx.latest
 
 #Set a working directory
-Workdir /app
+Workdir /school
 
 #Copy local website file to workdir
-copy . /app
+copy . /school
 
 #copy files from workdir to nginx default serve directory 
-Run cp -r /app/* /usr/share/nginx/html
+docker cp /home/ubuntu/website/. webserver:/usr/share/nginx/html/
 
 #expose defauls ngninx port 
 Expose 80
