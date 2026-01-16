@@ -1,17 +1,16 @@
-# User official Nginx image
-from nginx.latest
+FROM nginx:latest
 
-#Set a working directory
-Workdir /school
+# Set a working directory
+WORKDIR /school
 
-#Copy local website file to workdir
-copy . /school
+# Copy local website files to the working directory
+COPY . /school
 
-#copy files from workdir to nginx default serve directory 
-docker cp webserver:/usr/share/nginx/html/
+# Copy files from /school to nginx default serving directory
+RUN cp -r /school/* /usr/share/nginx/html/
 
-#expose defauls ngninx port 
-Expose 80
+# Expose default nginx port
+EXPOSE 80
 
-#start nginx
+# Start nginx
 CMD ["nginx", "-g", "daemon off;"]
