@@ -1,10 +1,14 @@
+# Use latest Nginx image
 FROM nginx:latest
 
-# Copy website files directly to nginx root
+# Set the working directory (optional, for inspection inside container)
+WORKDIR /app
+
+# Copy all website files from current folder to Nginx web root
 COPY . /usr/share/nginx/html/
 
-# Expose port 80
+# Expose port 80 for web traffic
 EXPOSE 80
 
-# Start nginx
+# Start Nginx in the foreground
 CMD ["nginx", "-g", "daemon off;"]
