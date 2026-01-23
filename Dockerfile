@@ -1,13 +1,13 @@
 FROM nginx:latest
 
 # Set a working directory
-WORKDIR /school
+WORKDIR /apple
 
 # Copy local website files to the working directory
-COPY . /school
+COPY . /apple
 
 # Copy files from /school to nginx default serving directory
-RUN cp -r /school/* /usr/share/nginx/html/
+RUN cp -r /apple/* /usr/share/nginx/html/
 
 # Expose default nginx port
 EXPOSE 80
