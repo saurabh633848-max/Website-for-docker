@@ -1,10 +1,8 @@
 FROM nginx:latest
 
-# Copy website files from komal directory to nginx web root
-COPY komal/ /var/www/html/
+# Copy website files to nginx default web root
+COPY komal/Website-for-docker/ /usr/share/nginx/html/
 
-# Expose port 80
 EXPOSE 80
 
-# Run nginx in foreground
 CMD ["nginx", "-g", "daemon off;"]
