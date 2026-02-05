@@ -1,10 +1,14 @@
 FROM nginx:latest
 
-# Copy all files from current folder (Website-for-docker) to nginx default web root
-COPY . /usr/share/nginx/html/
+# Set working directory inside container
+WORKDIR /app
 
-# Expose HTTP port
+# Copy all files from current folder to /app
+COPY . /app
+
+# Then copy to nginx web root
+RUN cp -r /app/* /usr/share/nginx/html/
+
 EXPOSE 80
 
-# Start nginx
 CMD ["nginx", "-g", "daemon off;"]
