@@ -1,10 +1,7 @@
 FROM nginx:latest
 
-# Copy website files
-COPY komal/Website-for-docker/ /var/www/html/
-
-# Copy custom nginx config
-COPY default.conf /etc/nginx/conf.d/default.conf
+# Copy all website files to nginx default web root
+COPY . /usr/share/nginx/html/
 
 EXPOSE 80
 
