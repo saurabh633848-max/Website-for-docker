@@ -1,12 +1,10 @@
 FROM nginx:latest
 
-# Copy website files directly to nginx root
-
-
-COPY . /usr/share/nginx/html/
+# Copy website files from komal directory to nginx web root
+COPY komal/ /var/www/html/
 
 # Expose port 80
 EXPOSE 80
 
-# Start nginx
+# Run nginx in foreground
 CMD ["nginx", "-g", "daemon off;"]
